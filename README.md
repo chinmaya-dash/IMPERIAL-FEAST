@@ -81,4 +81,4 @@ If you'd like to contribute to the project, please follow the contribution guide
 ## License
 
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the license terms.
-Enjoy exploring the Static Restaurant App! If you have any questions or suggestions, feel free to open an issue or pull request.
+Enjoy exploring the Static Restaurant App! If you have any questions or suggestions, feel free to open an issue or pull request.# IMPERIAL-FEAST
