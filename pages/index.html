@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/src/restaurant-584.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="./../public/css/style.css">
+    <title>IMPERIAL FEAST</title>
+</head>
+
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo">
+                <a id="hlogo" href="/">
+                    <i class="uil uil-restaurant"></i>
+                    <p>IMPERIAL FEAST</p>
+                </a>
+            </div>
+  
+
+            <div class="nav">
+                <ul><a class="active" href="#hero">Home</a></ul>
+                <ul><a class="" href="#services">Services</a></ul>
+                <ul><a class="" href="#dishes">Dishes</a></ul>
+                <ul><a class="" href="#Chefs">About</a></ul>
+                <ul><a class="" href="#review">Review</a></ul>
+                <ul><a class="" href="#reservation">Booking</a></ul>
+            </div>
+            <div class="rightsidebtn">
+                <div class="menubtn">
+                    <button class="menubtn_id">Menu <i class="uil uil-angle-double-right"></i></button>
+                </div>
+                <div class="cart" onclick="ac_cart()">
+                    <i class="uil uil-shopping-cart-alt"></i>
+                    <span class="cartno">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- menu page -->
+    <div class="menupage">
+        <div class="menutit">
+            <p>Our Menu</p>
+            <p>"Savor Delightful Flavors, Culinary Excellence on Every Plate."</p>
+        </div>
+        <div class="categories">
+            <button class="alactive" onclick="filterByCategory('All', this)">All</button>
+            <button class="category" onclick="filterByCategory('Breakfast', this)">Breakfast</button>
+            <button class="category" onclick="filterByCategory('Lunch', this)">Lunch</button>
+            <button class="category" onclick="filterByCategory('Snacks', this)">Snacks</button>
+            <button class="category" onclick="filterByCategory('Dinner', this)">Dinner</button>
+        </div>
+        <div class="wocon">
+            <div class="m1 m2">
+                <!-- card goes here -->
+            </div>
+        </div>
+    </div>
+    <!-- cart page -->
+    <div class="cartsection">
+
+        <div class="menutit">
+            <p class="juit">Shopping Cart</p>
+        </div>
+        <div class="cart_wraper">
+            Your cart is empty
+            <!-- here goes the cart data -->
+        </div>
+        <div class="guide">
+            <i class="uil uil-arrow-up"></i>
+            <p>To close click cart btn </p>
+        </div>
+
+        <div class="popupbg">
+            <!-- ----------------------------------------------- -->
+            <div class="payment_page">
+                <div class="svgwraper"></div>
+                <div class="contz">
+                    <div class="address_pay">
+                        <img src="./src/ft2.png" alt="" class="shopck" />
+                        <h1 id="hcen">Checkout</h1>
+                        <div class="chu">
+                            <div class="fcerow">
+                                <h3>Billing Address</h3>
+                                <button class="add_address_btn" onclick="openPopup()"><i class="uil uil-edit"></i>
+                                    Edit</button>
+                            </div>
+
+                            <div class="addr">
+
+                                <li class="gyj">
+                                    <strong>Address</strong> <span id="address">Salipur</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>Apartment/Unit</strong> <span id="apartment">Ipt road</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>City</strong> <span id="city">Cuttack</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>Postal Code (PIN)</strong> <span id="postal_code">754202</span><br>
+                                </li>
+                                <li class="gyj">
+                                    <strong>Mobile Number</strong> <span id="mobile_number">9696364512</span>
+                                </li>
+
+                            </div>
+
+                            <div class="popup" id="editPopup">
+                                <h2>Edit Address</h2>
+                                <div class="flyu">
+                                    <div class="fllll">
+                                        <div class="kl">
+                                            <label for="editAddress">Address:</label>
+                                            <input type="text" id="editAddress" placeholder="Enter address">
+                                        </div>
+                                        <div class="kl">
+                                            <label for="editCity">City:</label>
+                                            <input type="text" id="editCity" placeholder="Enter city">
+                                        </div>
+                                    </div>
+                                    <div class="fllll">
+                                        <div class="kl">
+                                            <label for="editApartment">Road:</label>
+                                            <input type="text" id="editApartment" placeholder="Enter apartment/unit">
+                                        </div>
+
+                                        <div class="kl">
+                                            <label for="editPostalCode">PIN:</label>
+                                            <input type="text" id="editPostalCode" placeholder="Enter postal code">
+                                        </div>
+                                    </div>
+                                    <div class="kl">
+                                        <label for="editMobileNumber">Mobile Number:</label>
+                                        <input type="text" id="editMobileNumber" placeholder="Enter mobile number">
+                                    </div>
+                                </div>
+
+                                <button class="save_btn btns46" onclick="saveAddress()">Save</button>
+                            </div>
+
+                            <!-- Payment Method Selectors -->
+                            <div class="payment_methods">
+                                <label>
+                                    <input id="creditcdt1" type="radio" name="paymentMethod" value="cashOnDelivery"
+                                        onchange="closecty()" checked>
+                                    Cash on Delivery
+                                </label>
+                                <label>
+                                    <input id="creditcdt2" type="radio" name="paymentMethod" value="paypal"
+                                        onchange="closecty()">
+                                    PayPal
+                                </label>
+                                <label>
+                                    <input id="creditcdt" type="radio" name="paymentMethod" value="creditCard"
+                                        onchange="openCreditCardModal()">
+                                    Credit Card
+                                </label>
+                            </div>
+                            <div class="cdrt">
+                                <!-- credit card -->
+                            </div>
+                            <!--  -->
+                            
+                            <!-- Modal for Credit Card details -->
+                            <div class="modal" id="creditCardModal">
+                                <h2>Enter Credit Card Details</h2>
+                                <label for="cardNumber">Card Number:</label>
+                                <input type="text" id="cardNumber" placeholder="Enter card number">
+
+                                <label for="expireDate">Expiration Date:</label>
+                                <input type="text" id="expireDate" placeholder="MM/YYYY">
+
+                                <label for="cvv">CVV Number:</label>
+                                <input type="text" id="cvv" placeholder="Enter CVV number">
+
+                                <button class="njk" onclick="saveCreditCard()">Save Card</button>
+                            </div>
+                           
+                            <div class="btns45">
+                                <button class="popstop">Back</button>
+                                <button type="button" class="paybut">Continue to Pay</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summry">
+                        <div class="congyu">
+                            <h3 class="ni2">Order summary</h3>
+                            <br>
+                            <p class="tex"><span id="bold">subtotal</span><span class="subt">3456</span></p>
+                            <p class="tex"><span id="bold">Shipping</span><span class="ship">55</span></p>
+                            <p class="tex"><span id="bold">Taxes</span> <span class="tax">75</span></p>
+                            <p class="tex"><span id="bold">Discount</span><span id="dis">-20% <span
+                                        class="dicty">(691)</span></span></p>
+                            <br>
+                            <li class="linet"></li>
+
+                            <p class="tex ni"><span id="bold">Grand Total</span><span id="tol0">2895</span></p>
+
+                            <li class="linet"></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================================================== -->
+
+        </div>
+        <div class="cartbtnarea">
+            <div class="cart_btns">
+                <div class="orderfrom_cart">
+                    <div class="placetotal">
+                        <span class="totalprice"><i class="uil uil-rupee-sign"></i>0</span>
+                        <p>Total Price</p>
+                    </div>
+                    <button class="order">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="hero">
+        <div class="designbg">
+        </div>
+        <!-- ============================== -->
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- featured cards goes hear -->
+            </div>
+            <!-- <div class="swiper-button-next"></div> -->
+            <!-- <div class="swiper-button-prev"></div> -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- ================================== -->
+        <div class="botomsec_hero">
+            <div class="left_b">
+                <p id="bold">Lunch</p>
+                <p id="reg">11.30 AM - 2.30 PM</p>
+                <img id="arrow" src="./src/Group 6.svg" alt="">
+            </div>
+            <div class="right_b">
+                <button onclick="menuact()" id="bmenu">Explore Menu <i class="uil uil-arrow-right"></i></button>
+                <div class="s_sec">
+                    <div class="cieclesec">
+                        <div class="circle">
+                            <img src="./../public/src/dish/12.jpg">
+                        </div>
+                        <div class="circle">
+                            <img src="./../public/src/dish/14.jpeg">
+                        </div>
+                        <div class="circle">
+                            <img src="./../public/src/dish/18.png">
+                        </div>
+                    </div>
+                    <div class="no">
+                        <p id="bold">75+</p>
+                        <p id="reg">Asesome Dishes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <div class="mk">
+            <div class="t1">
+                <div class="wrp">
+                    <p>We Are More Than Multiple Service</p>
+                    <p>We transcend the ordinary as more than a mere service – our restaurant is an immersive experience
+                        that goes beyond the conventional. With a diverse range of offerings, we invite you to savor not
+                        just dishes, but moments of culinary delight. Uniting flavors, ambiance, and hospitality, we
+                        redefine dining as an elevated and multifaceted experience.</p>
+                    <button id="btn4">About us</button>
+                </div>
+            </div>
+            <div class="t2">
+                <div class="con">
+                    <div class="s1">
+                        <span class="material-symbols-outlined">
+                            shopping_bag
+                        </span>
+                        <p id="bold">Online Order</p>
+                        <p id="reg4">Savor the Flavor from Anywhere: Seamless Online Ordering at Your Fingertips!</p>
+                    </div>
+                    <div class="s1">
+                        <span class="material-symbols-outlined">
+                            local_shipping
+                        </span>
+                        <p id="bold">Free delivery</p>
+                        <p id="reg4">Delightful Dishes, Delivered Free: Elevate Your Culinary Experience with
+                            Complimentary Delivery!</p>
+                    </div>
+                    <div class="s1">
+                        <span class="material-symbols-outlined">
+                            add_shopping_cart
+                        </span>
+                        <p id="bold">easy to order</p>
+                        <p id="reg4">Simplicity Meets Savory: Effortless Ordering, Extraordinary Dining Experiences!</p>
+                    </div>
+                    <div class="s1">
+                        <span class="material-symbols-outlined">
+                            local_convenience_store
+                        </span>
+                        <p id="bold">24/7 Support</p>
+                        <p id="reg4">Around the Clock Excellence: Your Culinary Journey, Our Commitment – 24/7 Support
+                            for Your Every Craving!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="dishes">
+        <div class="secdiv">
+            <p class="ko">Our Today's Special</p>
+            <p>Savor the Extraordinary, Every Day.</p>
+        </div>
+        <div class="wocon">
+            <div class="m1 viewcart">
+                <!-- card goes here -->
+            </div>
+        </div>
+        <button class="butyu" onclick="menuact()"><i class="uil uil-book-open"></i> vist menu <i class="uil uil-corner-up-right-alt"></i></button>
+    </section>
+    <section id="Chefs">
+        <div class="secdiv k8">
+            <p>Our Expert Chef's</p>
+            <p>Crafting Culinary Excellence, One Plate at a Time.</p>
+        </div>
+        <div class="cef">
+            <div class="cf">
+                <img src="./../public/src/chef/chef1.jpg" alt="">
+            </div>
+            <div class="cf">
+                <img src="./../public/src/chef/chef2.jpg" alt="">
+            </div>
+            <div class="cf">
+                <img src="./../public/src/chef/chef3.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <section id="review">
+        <div class="secdiv k7">
+            <p>What Others Are Saying</p>
+            <p>Feast on Flavor, Echoed by Delightful Testimonials.</p>
+        </div>
+        <div class="review_cont">
+            <div class="rev_text">
+                <div class="us_text activetext">
+                    <i class="fas fa-quote-left"></i>
+                    <p> I can't say enough good things about FoodLane! The atmosphere is cozy, the staff is friendly,
+                        and the food is simply outstanding. From the moment you walk in, you feel a warm welcome. My
+                        favorite dish is the FoodLane Delight—it's a taste sensation that keeps me coming back for more.
+                        The perfect blend of flavors and the freshness of the ingredients make it a culinary delight.
+                    </p>
+                    <span>Sarah Thompson<span>
+                </div>
+                <div class="us_text ">
+                    <i class="fas fa-quote-left"></i>
+                    <p>As a self-proclaimed foodie, I've tried countless restaurants, and [Restaurant Name] is at the
+                        top of my list. The attention to detail in every dish is impeccable. The fusion of flavors is
+                        nothing short of culinary genius. The [Chef's Special] is a must-try! The ambiance is perfect
+                        for any occasion, whether it's a casual dinner or a special celebration.</p>
+                    <span>James Rodriguez</span>
+                </div>
+                <div class="us_text ">
+                    <i class="fas fa-quote-left"></i>
+                    <p>I recently celebrated my birthday at [Restaurant Name], and it was an unforgettable experience.
+                        The staff went above and beyond to make the evening special. The menu offers a fantastic
+                        variety, and each dish is a work of art. The [Dessert Name] was the perfect sweet ending to my
+                        celebration.</p>
+                    <span>Emily Chen<span>
+                </div>
+                <div class="us_text">
+                    <i class="fas fa-quote-left"></i>
+                    <p>I'm a regular at [Restaurant Name], and for good reason. The consistency in quality is
+                        impressive. The chefs know how to elevate simple ingredients into extraordinary dishes. </p>
+                    <span>David Patel</span>
+                </div>
+                <div class="us_text">
+                    <i class="fas fa-quote-left"></i>
+                    <p>I recently discovered [Restaurant Name] and instantly fell in love. The menu is a delightful mix
+                        of flavors, and the presentation is Instagram-worthy. The vegetarian options are some of the
+                        best I've ever had—especially the [Vegetarian Dish]. The staff is knowledgeable and attentive,
+                        making sure every dining experience is enjoyable.</p>
+                    <span>Alicia Walker</span>
+                </div>
+            </div>
+            <div class="r_pic">
+                <img src="./../public/src/review/p1.jpg" onclick="showreview()" class="user_pic activepic" alt="">
+                <img src="./../public/src/review/p2.jpg" onclick="showreview()" class="user_pic " alt="">
+                <img src="./../public/src/review/p4.jpg" onclick="showreview()" class="user_pic " alt="">
+                <img src="./../public/src/review/p3.jpg" onclick="showreview()" class="user_pic " alt="">
+                <img src="./../public/src/review/p5.jpg" onclick="showreview()" class="user_pic " alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="reservation-section">
+        <div class="container">
+            <div class="secdiv k7">
+                <p>Make a Reservation</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur velit soluta rem possimus veritatis
+                    veniam doloribus eos totam enim aut.</p>
+            </div>
+
+            <!-- Reservation Form -->
+            <form id="reservationForm" class="reservation-form" method="post">
+
+                <!-- Customer Information -->
+                <div class="cusmrec">
+                    <div class="form-group">
+                        <label for="customerName">Your Name:</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Your Email:</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Your Phone:</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+
+                    <!-- Additional Comments -->
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests:</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="4"
+                            placeholder="Any special requests or notes..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="btnwrap_form">
+                        <button type="submit" onclick="submit()" id="btns4" class="btn btn-primary">Book a Table <i
+                                class="uil uil-transaction"></i></button>
+                        <!-- <button onclick="reset()" id="btns56" class="btnClear">clear</button> -->
+                    </div>
+                </div>
+
+                <!-- Date and Time Selection -->
+                <div class="cusmrec">
+                    <div class="form-group">
+                        <label for="reservationDate">Select Date:</label>
+                        <input type="date" id="reservationDate" name="reservationDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservationTime">Select Time:</label>
+                        <input type="time" id="reservationTime" name="reservationTime">
+                    </div>
+
+                    <!-- Party Size -->
+                    <div class="form-group">
+                        <label for="partySize">Party Size:</label>
+                        <select id="partySize" name="partySize" required>
+                            <option value="1">Select</option>
+                            <option value="2">2 people</option>
+                            <option value="3">3 people</option>
+                            <option value="3">4 people</option>
+                            <option value="3">5 people</option>
+                            <option value="3">10 people+</option>
+                            <option value="3">20 people+</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="occasion">Special Occasion:</label>
+                        <select id="occasion" name="occasion">
+                            <option value="">Select</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="anniversary">Anniversary</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- loader -->
+    <div class="loader_con">
+        <img src="./../public/src/food.gif" alt="">
+    </div>
+    <footer id="foot">
+        <div class="footer_wraper">
+            <div class="mainfooter">
+                <div class="rname">
+                    <p id="fid">FoodLane.me</p>
+                </div>
+                <div class="rcont">
+                    <p>Connect with us</p>
+                </div>
+                <div class="menu_foot">
+                    <p id="ftilt">menu</p>
+                    <ul><a href="">About us</a></ul>
+                    <ul><a href="">Contact us</a></ul>
+                    <ul><a href="">Book a table</a></ul>
+                    <ul><a href="">Dishes</a></ul>
+                </div>
+                <div class="getint">
+                    <p id="ftilt">Get in touch</p>
+                    <ul id="feedback">Questions or Feedback ?</ul>
+                    <ul id="feedback">We'd love to hear from you</ul>
+                </div>
+            </div>
+            <div class="bottom_footer">
+                <div class="footer-row">
+                    <p><a href="faq.html">FAQ</a> | <a href="terms.html">Terms and Conditions</a> | <a
+                            href="https://github.com/yourusername/restaurant-app" target="_blank">GitHub Project</a></p>
+                </div>
+                <div class="footer-row">
+                    <p>&copy; 2023 FoodLane. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"
+        integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/2f9de29a88.js" crossorigin="anonymous"></script>
+    <script src="./../public/main.js"></script>
+</body>
+
+</html>
