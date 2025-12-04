@@ -3,7 +3,7 @@
 
 <!-- > Live Demo : [vercel](https://food-lane-puce.vercel.app/) -->
 
-![preview](./public/src/demobt.gif)  
+<!-- ![preview](./public/src/demobt.gif)   -->
 
 
 ### Table of Contents
